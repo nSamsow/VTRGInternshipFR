@@ -1,0 +1,13 @@
+# tensorflow-gpu==2.1.0
+# Python
+# numpy
+# opencv-python
+# mtcnn
+
+# Flask
+# Werkzeug
+# Jinja2
+# Flask-Migrate
+# click
+# itsdangerous
+# MarkupSafe
