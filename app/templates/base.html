@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% block head %}
+      <title>Page Title</title>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+      <script type="text/javascript">
+        $(window).scroll(function() {
+        var y = $(window).scrollTop();
+        if (y > 0) {
+          $("#header").addClass('--not-top');
+        } else {
+          $("#header").removeClass('--not-top');
+        }
+        });
+      </script>
+      <style media="screen">
+        #header {
+          background: white;
+          border-bottom: 1px rgba(0, 0, 0, 0.07) solid;
+          z-index: 99;
+          &.--not-top {
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.1)
+          }
+        }
+      </style>
+
+    {% endblock %}
+  </head>
+
+  <body>
+    <!-- Fixed Navbar -->
+    <header id="header" class="sticky-top shadow-lg mb-3">
+      <nav class="navbar navbar-expand-sm" role="navigation"
+      style="background-color:#1C2331;navbar-color:#1C2331;">
+        <div class="container">
+          <a class="navbar-brand" href="{{ url_for('index') }}"
+          style="color:azure;">
+            Face Recognition
+          </a>
+          <div class="collapse navbar-collapse justify-content-end">
+            <ul class="navbar-nav column">
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('camera') }}"
+                style="color:#eeeeee;">
+                  Camera
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('register') }}"
+                style="color:#eeeeee;">
+                  Register
+                </a>
+              </li>
+              {% if current_user.is_anonymous %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}"
+                style="color:#eeeeee;">
+                  Login
+                </a>
+              </li>
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}"
+                style="color:#eeeeee;">
+                  Logout
+                </a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Content -->
+    {% block body %}{% endblock %}
+
+    <!-- <footer class="page-footer font-small light pt-4"> -->
+      <!-- <div class="container-fluid text-center text-md-left bg-dark" style="height:50px">
+        <p>111</p>
+      </div> -->
+      <!-- <div class="container-fluid text-center align-items-center text-md-left bg-dark" style="height:150px">
+        <div class="row ml-5 mr-5 justify-content-center align-items-center">
+          <a href="#">Home&emsp;</a></li>
+          <a href="#">About Me&emsp;</a></li>
+          <a href="#">Portfolio&emsp;</a></li>
+          <a href="#">Blog&emsp;</a></li>
+          <a href="#">Contact</a></li>
+        </div>
+      </div> -->
+      <!-- <div class="footer-copyright text-center py-3 bg-dark">
+        <span style="color:azure">© 2020 Copyright:</span>
+        <a href="#" style="color:dodgerblue">Napat_Samsow</a>
+      </div> -->
+    <!-- </footer> -->
+  </body>
+</html>

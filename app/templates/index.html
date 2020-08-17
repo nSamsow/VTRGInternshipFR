@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block head %}
+  <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.js"
+  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    $(window).scroll(function() {
+    var y = $(window).scrollTop();
+    if (y > 0) {
+      $("#header").addClass('--not-top');
+    } else {
+      $("#header").removeClass('--not-top');
+    }
+    });
+  </script>
+  <style media="screen">
+    #header {
+      background: white;
+      border-bottom: 1px rgba(0, 0, 0, 0.07) solid;
+      z-index: 99;
+      &.--not-top {
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.1)
+      }
+    }
+  </style>
+{% endblock %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="jumbotron jumbotron" style="height:640px;">
+      <div class="container">
+        <h1 class="display-4" style="color:#1C2331;">Face Recognition</h1>
+        <p class="lead" style="color:#1C2331;">
+          Real-time Face Recognition Web App
+        </p>
+        <p class="lead" style="color:#1C2331;font-size:100%;">
+          SENet-50 model from
+          <a href="https://github.com/rcmalli/keras-vggface"><code>keras-vggface</code></a>
+          with accuracy of 98.533% on Labeled Faces in the Wild (LFW) dataset
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="d-flex flex-row flex-wrap justify-content-center">
+    <div class="row">
+      <div class="column mx-3">
+        <div class="card" style="width:240px;height:180px">
+          <h5>VGG16</h5><br>
+          <small>with accuracy of 87.2% on LFW dataset and processing time of 46.05 ms</small>
+        </div>
+      </div>
+      <div class="column mx-3">
+        <div class="card" style="width:240px;height:180px">
+          <h5>ResNet-50</h5><br>
+          <small>with accuracy of 97.917% on LFW dataset and processing time of 58.63 ms</small>
+        </div>
+      </div>
+      <div class="column mx-3">
+        <div class="card" style="width:240px;height:180px">
+          <h5>SENet-50</h5><br>
+          <small>with accuracy of 98.5% on LFW dataset and processing time of 52.66 ms</small>
+        </div>
+      </div>
+    </div>
+  </div> -->
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <div class="container">
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+      <div class="col-lg-6 col-md-9 mt-4">
+        <div class="card shadow">
+
+          <div class="card-header">
+            <h5 style="color:#1C2331;">Delete User</h5>
+          </div>
+          <div class="card-body">
+            <div class="p-4">
+              <p>Display name:&ensp;{{ personToDelete.dispname }}</p>
+              <p>Age:&ensp;{{ personToDelete.age }}</p>
+              <p>Gender:&ensp;{{ personToDelete.gender }}</p>
+              <div class="contact-form">
+                <form method="POST" enctype="multipart/form-data" role="form">
+                  {{ form.hidden_tag() }}
+                  <p style="text-align:center">
+                    <a href="/register/<dispname>/deleted">
+                      {{ form.submit(class="btn bg-danger", style="color:Azure") }}
+                    </a>
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

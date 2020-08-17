@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <div class="container">
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+      <div class="col-lg-6 col-md-9 mt-4">
+        <div class="card shadow">
+
+          <div class="card-header">
+            <h5 style="color:#1C2331;">Update Information</h5>
+          </div>
+          <div class="card-body contact-form">
+            <form method="POST" enctype="multipart/form-data" role="form"
+            class="p-4">
+              {{ form.hidden_tag() }}
+              <p>Current display name:&ensp;{{ personToUpdate.dispname }}</p>
+              {{ form.new_dispname(class="form-control") }}
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  {% for message in messages %}
+                    <small>
+                      <span style="color:red;">
+                        {{ message }}<br>
+                      </span>
+                    </small>
+                  {% endfor %}
+                  <div class="mb-2"></div>
+                {% else %}
+                  <div class="mb-4"></div>
+                {% endif %}
+              {% endwith %}
+              {% for error in form.new_dispname.errors %}<br>
+              <span style="color:red;">[{{ error }}]</span>
+              {% endfor %}
+              <p>Current age:&ensp;{{ personToUpdate.age }}</p>
+              {{ form.new_age(class="form-control mb-4") }}
+              {% for error in form.new_age.errors %}<br>
+              <span style="color:red;">[{{ error }}]</span>
+              {% endfor %}
+              <p>Current gender:&ensp;{{ personToUpdate.gender }}</p>
+              {{ form.new_gender(class="form-control mb-4") }}
+              {% for error in form.new_gender.errors %}<br>
+              <span style="color:red;">[{{ error }}]</span>
+              {% endfor %}
+              <p style="text-align:center">
+                <a href="/register/{{ personToUpdate.dispname }}/update">
+                  {{ form.submit(class="btn", style="background-color:#1C2331;color:Azure") }}
+                </a>
+              </p>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

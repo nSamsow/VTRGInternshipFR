@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block body %}
+  <div class="container">
+    <div class="d-flex flex-row flex-wrap justify-content-center">
+      <div class="col-lg-6 col-md-9 mt-4">
+        <div class="card shadow">
+
+          <div class="card-header">
+            <h5 style="color:#1C2331;">Images</h5>
+          </div>
+          <div class="card-body">
+            <div class="p-4">
+              <p>Display name:&ensp;{{ personToShow.dispname }}</p>
+              <p>Age:&ensp;{{ personToShow.age }}</p>
+              <p>Gender:&ensp;{{ personToShow.gender }}</p>
+              {% for pic in pics %}
+                <img src="/static/{{folder}}/{{pic}}" alt="{{folder}} image"/>
+              {% endfor %}
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
